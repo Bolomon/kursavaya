@@ -11,10 +11,11 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '',
+            'cookieValidationKey' => 'flkjsdhfgshgfoofiosjto',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -51,6 +52,14 @@ $config = [
             ],
         ],
         */
+        'modules' => [
+            'rbac' => 'dektrium\rbac\RbacWebModule',
+            'user' => [
+                'class' => 'dektrium\user\Module',
+            ],
+            'class' => 'yii\debug\Module',
+            'allowedIPs' => ['127.0.0.1', '::1']
+        ],
     ],
     'params' => $params,
 ];
