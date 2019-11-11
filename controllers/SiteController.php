@@ -65,6 +65,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new MessageForm();
+        $message = MessageForm::find()->all();
+
 
         if ($model->load(Yii::$app->request->post())){
             $model->id_user = Yii::$app->user->id;
@@ -74,6 +76,7 @@ class SiteController extends Controller
     }
 
         return $this->render('index', [
+            'message' => $message,
             'model' => $model,
         ]);
     }
