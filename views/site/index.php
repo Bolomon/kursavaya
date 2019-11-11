@@ -12,8 +12,13 @@ $this->title = 'My Yii Application';
     <div class="toast" style="max-height: 400px;">
             <?php
                 foreach ($message as $key){
+                    $margin = NULL;
+                    if ($key->id_user == \Yii::$app->user->identity->id){
+                        $margin = " text-align: right ;";
+                    };
+                    echo '<div style=" '.$margin.' ">';
                     echo '</br>
-                <div class="toast-header" style="max-height: 400px;">
+                <div class="toast-header" style="max-height: 400px ; ">
                     <img src="../web/images/user.png" class="rounded mr-2" alt="..." id = "user_icon" style="height: 20px; width: 20px;">
                     <strong class="mr-auto">'.$key->username.'</strong>
                     <small></small>
@@ -22,6 +27,7 @@ $this->title = 'My Yii Application';
                 <div class="toast-body">
                     '.$key->message.'<div class="toast-body">';
                     echo '</br>';
+                    echo '</div>';
                 }
             ?>
 
